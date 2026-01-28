@@ -81,9 +81,9 @@ export default function Dropzone() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className={`border border-dashed rounded-2xl p-16 text-center transition-all duration-300 ${status === 'error'
+                        className={`border border-dashed rounded-2xl p-16 text-center transition-all duration-300 backdrop-blur-sm ${status === 'error'
                             ? 'border-red-500/50 bg-red-500/5'
-                            : 'border-neutral-700/50 hover:border-syncra-primary/50 hover:bg-syncra-primary/5'
+                            : 'border-white/10 hover:border-syncra-primary/50 bg-neutral-900/40 hover:bg-syncra-primary/5'
                             }`}
                         onDragOver={handleDragOver}
                         onDrop={handleDrop}
@@ -93,8 +93,8 @@ export default function Dropzone() {
                                 <Upload size={32} />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold mb-2 text-white">Drag & Drop Image</h3>
-                                <p className="text-neutral-500 text-sm font-light">Supports JPEG, PNG • Max 10MB</p>
+                                <h3 className="text-xl font-bold mb-2 text-white">Limpiar Imagen</h3>
+                                <p className="text-neutral-500 text-sm font-light">Arrastra y suelta • Soporta JPEG, PNG</p>
                             </div>
                             <input
                                 type="file"
@@ -107,7 +107,7 @@ export default function Dropzone() {
                                 htmlFor="file-upload"
                                 className="cursor-pointer px-6 py-2 bg-white text-black font-semibold rounded-full hover:bg-neutral-200 transition-colors"
                             >
-                                Select File
+                                Seleccionar Archivo
                             </label>
                         </div>
                         {status === 'error' && (
@@ -128,7 +128,7 @@ export default function Dropzone() {
                             onClick={processFile}
                             className="w-full py-3 bg-syncra-primary text-white font-bold rounded-xl hover:bg-syncra-light transition-all shadow-[0_0_20px_rgba(58,0,228,0.3)]"
                         >
-                            Remove Credentials
+                            Eliminar Credenciales
                         </button>
                     </motion.div>
                 ) : null}
@@ -143,7 +143,7 @@ export default function Dropzone() {
                     >
                         <Loader2 className="animate-spin text-syncra-primary mb-4" size={48} />
                         <p className="text-lg font-light text-neutral-300">
-                            {status === 'uploading' ? 'Uploading...' : 'Stripping Metadata...'}
+                            {status === 'uploading' ? 'Subiendo...' : 'Eliminando Metadatos...'}
                         </p>
                     </motion.div>
                 ) : null}
@@ -158,8 +158,8 @@ export default function Dropzone() {
                         <div className="inline-flex items-center justify-center w-20 h-20 bg-green-500/20 text-green-500 rounded-full mb-6">
                             <CheckCircle size={40} />
                         </div>
-                        <h2 className="text-3xl font-bold mb-2">Clean.</h2>
-                        <p className="text-neutral-400 mb-8">Your image is now free of attached credentials.</p>
+                        <h2 className="text-3xl font-bold mb-2">Limpio.</h2>
+                        <p className="text-neutral-400 mb-8">Tu imagen ahora está libre de credenciales.</p>
 
                         <div className="flex gap-4 justify-center">
                             <a
@@ -168,13 +168,13 @@ export default function Dropzone() {
                                 className="flex items-center gap-2 px-8 py-3 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform"
                             >
                                 <Download size={20} />
-                                Download
+                                Descargar
                             </a>
                             <button
                                 onClick={reset}
                                 className="px-8 py-3 border border-neutral-700 rounded-full hover:bg-neutral-800 transition-colors"
                             >
-                                New File
+                                Nuevo Archivo
                             </button>
                         </div>
                     </motion.div>

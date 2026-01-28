@@ -5,13 +5,9 @@
   --color-foreground: var(--foreground);
 
   --color-syncra-primary: #6366f1;
-  /* Indigo 500 - Vibrant */
-  --color-syncra-light: #818cf8;
-  /* Indigo 400 */
+  --color-syncra-light: #a5b4fc;
   --color-syncra-dark: #312e81;
-  /* Indigo 900 */
   --color-success: #10b981;
-  /* Emerald 500 */
 
   --font-sans: var(--font-geist-sans), sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
@@ -78,6 +74,25 @@ body {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.15);
     box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+  }
+
+  .scanline-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scanline-effect::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
   }
 
   .gradient-text {
